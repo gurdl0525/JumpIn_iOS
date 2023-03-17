@@ -14,7 +14,6 @@
 		062209A529C4394F004EEC72 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 062209A329C4394F004EEC72 /* LaunchScreen.storyboard */; };
 		062209AE29C439C4004EEC72 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 062209AD29C439C4004EEC72 /* SnapKit */; };
 		062209B129C439FE004EEC72 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 062209B029C439FE004EEC72 /* Then */; };
-		062209B329C44107004EEC72 /* _ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062209B229C44107004EEC72 /* _ViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -63,7 +62,6 @@
 				0622099829C4394E004EEC72 /* AppDelegate.swift */,
 				0622099A29C4394E004EEC72 /* SceneDelegate.swift */,
 				0622099C29C4394E004EEC72 /* ViewController.swift */,
-				062209B229C44107004EEC72 /* _ViewController.swift */,
 				062209A129C4394F004EEC72 /* Assets.xcassets */,
 				062209A329C4394F004EEC72 /* LaunchScreen.storyboard */,
 				062209A629C4394F004EEC72 /* Info.plist */,
