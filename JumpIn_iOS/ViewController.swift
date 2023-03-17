@@ -19,17 +19,7 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.addSubview(abutton)
-        view.backgroundColor = .systemBackground
         
-        abutton.snp.makeConstraints {
-            $0.centerX.centerY.equalToSuperview()
-            $0.height.equalTo(50.0)
-            $0.width.equalTo(100)
-        }
-        
-        abutton.layer.cornerRadius = 10.0
+        attrubt()
     }
-
 }
-
