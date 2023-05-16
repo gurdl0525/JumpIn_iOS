@@ -11,15 +11,7 @@ import Then
 
 class ViewController: UIViewController {
     
-    var abutton = UIButton().then {
-        $0.backgroundColor = .red
-    }
-    
-    var a: String = ""
-
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        attrubt()
     }
 }
