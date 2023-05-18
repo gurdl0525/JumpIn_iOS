@@ -13,14 +13,14 @@ final class TabBarController: UITabBarController {
         
         let homeViewContoller = UINavigationController(rootViewController: StreamViewController())
         homeViewContoller.tabBarItem = UITabBarItem(
-            title: nil,
+            title: "홈",
             image: UIImage(named: "home"),
             selectedImage: UIImage(named: "home")
         )
         
         let shortsViewController = UINavigationController(rootViewController: UIViewController())
         shortsViewController.tabBarItem = UITabBarItem(
-            title: nil,
+            title: "Shorts",
             image: UIImage(named: "shorts"),
             selectedImage: UIImage(named: "shorts"))
         
@@ -32,14 +32,14 @@ final class TabBarController: UITabBarController {
         
         let subscribeViewController = UINavigationController(rootViewController: UIViewController())
         subscribeViewController.tabBarItem = UITabBarItem(
-            title: nil,
+            title: "구독",
             image: UIImage(named: "subscribe"),
             selectedImage: UIImage(named: "subscribe")
         )
         
         let storageViewController = UINavigationController(rootViewController: UIViewController())
         storageViewController.tabBarItem = UITabBarItem(
-            title: nil,
+            title: "보관함",
             image: UIImage(named: "storage"),
             selectedImage: UIImage(named: "storage")
         )

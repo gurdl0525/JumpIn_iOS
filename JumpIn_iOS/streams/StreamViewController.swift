@@ -11,13 +11,13 @@ import Then
 
 class StreamViewController: UIViewController {
     
-    
     private lazy var tableView = UITableView().then {
         $0.backgroundColor = .systemBackground
         $0.separatorStyle = .none
         $0.dataSource = self
-        
+        $0.delegate = self
         $0.register(StreamTableViewCell.self, forCellReuseIdentifier: StreamTableViewCell.identity)
+        $0.rowHeight = 325.0
     }
     
     private lazy var imagePickerController = UIImagePickerController().then {
@@ -35,14 +35,16 @@ class StreamViewController: UIViewController {
 }
 
 extension StreamViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        var selectImage: UIImage?
         
-        if let editedImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {
-            selectImage = editedImage
-        } else if let originalImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
-            selectImage = originalImage
-        }
+//        var selectImage: UIImage? = nil
+//
+//        if let editedImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {
+//            selectImage = editedImage
+//        } else if let originalImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+//            selectImage = originalImage
+//        }
         
         picker.dismiss(animated: true) { [weak self] in
             let playVideoViewController = PlayVideoViewController()
@@ -65,23 +67,56 @@ extension StreamViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: StreamTableViewCell.identity, for: indexPath) as? StreamTableViewCell
         
         cell?.selectionStyle = .none
-        cell?.setup()
+        cell?.addView()
+        cell?.setLayout()
         
         return cell ?? UITableViewCell()
+    }
+    
+}
+
+extension StreamViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("영상 클릭")
     }
 }
 
 private extension StreamViewController {
+    
     func setupNavigationBar() {
-        navigationItem.title = "youtube"
+        navigationItem.title = "YouTube"
         
-//        let uploadButton = UIBarButtonItem(
-//            image: UIImage(systemName: "plus.app"),
+//        let logoButton = UIBarButtonItem(customView:
+//            UIImageView().then {
+//            $0.image = UIImage(named: "logo")
+//            }
+//        )
+        
+        let notificationButton = UIBarButtonItem(
+            image: UIImage(systemName: "bell"),
+            style: .plain,
+            target: self,
+            action: #selector(didTapUploadButton)
+        )
+        
+        let searchButton = UIBarButtonItem(
+            image: UIImage(systemName: "magnifyingglass"),
+            style: .plain,
+            target: self,
+            action: #selector(didTapUploadButton)
+        )
+        
+//        let profileButton = UIBarButtonItem(
+//            image: UIImage(named: "profile"),
 //            style: .plain,
 //            target: self,
 //            action: #selector(didTapUploadButton)
 //        )
-//        navigationItem.rightBarButtonItem = uploadButton
+        
+//        navigationItem.leftBarButtonItem = logoButton
+        navigationItem.rightBarButtonItems = [searchButton, notificationButton]
+        
     }
     
     @objc func didTapUploadButton() {
